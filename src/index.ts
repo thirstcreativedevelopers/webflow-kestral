@@ -41,6 +41,18 @@ navLinks.forEach(function (link) {
   });
 });
 
+/* Extract hero images from collection, randomise and apply to #heroimg element */
+// Get all the image URLs
+const imageElements = document.querySelectorAll('.hero-collection-item [data-src]');
+const imageUrls = Array.from(imageElements).map((element) => element.dataset.src);
+
+// Select a random URL
+const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+
+// Apply the random image URL as the background for #heroimg
+const heroImgElement = document.getElementById('heroimg');
+heroImgElement.style.backgroundImage = `url(${randomImageUrl})`;
+
 // const scroll = new LocomotiveScroll({
 //   el: document.querySelector('[data-scroll-container]'),
 //   smooth: true,
